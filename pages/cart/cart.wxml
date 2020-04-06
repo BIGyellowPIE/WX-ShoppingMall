@@ -1,15 +1,17 @@
 <scroll-view scroll-y>
   <view class="content">
-    <navigator url="/pages/detail/detail?id={{item.id}}"  class="product" wx:for="{{productList}}" wx:key="index">
-      <image src="{{item.src}}" mode="widthFix"></image>
-      <view class="info">
-        <text>{{item.name}}</text>
-        <text class="price">¥{{item.price}}</text>
-      </view>
+    <view   class="product" wx:for="{{productList}}" wx:key="index">
+      <navigator url="/pages/detail/detail?id={{item.id}}" class="box">
+        <image src="{{item.src}}" mode="widthFix"></image>
+        <view class="info">
+          <text>{{item.name}}</text>
+          <text class="price">¥{{item.price}}</text>
+        </view>
+      </navigator>
       <checkbox-group id="{{item.id}}" bindchange="checkedChange">
         <checkbox value="{{item.id}}"></checkbox>
       </checkbox-group>
-    </navigator>
+    </view>
   </view>
 </scroll-view>
 

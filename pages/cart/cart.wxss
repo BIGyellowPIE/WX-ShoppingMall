@@ -26,7 +26,12 @@ scroll-view{
   border-radius: 16rpx;
   margin-bottom: 10rpx;
 }
-
+.box{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
 .product .info{
   width: 100%;
   height: 100%;
