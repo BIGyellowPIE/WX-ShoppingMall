@@ -1,6 +1,6 @@
 .myLogin{
   height: 400rpx;
-  background-color: #576b95;
+  background-color: #4ECE59;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-color: #2460ad;
+  background-color: #4ECE59;
 }
 
 .menu .classtype{
@@ -19,7 +19,7 @@
 }
 
 .now{
-  background-color: #133869;
+  background-color: #4ECE59;
 }
 
 .menu text{

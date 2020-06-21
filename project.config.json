@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -24,7 +24,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.4",
-	"appid": "wx3060de3ee21a2024",
+	"appid": "wxd62342776f95580b",
 	"projectname": "Shop1",
 	"cloudfunctionTemplateRoot": "",
 	"watchOptions": {

@@ -1,23 +1,24 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/detail/detail",
     "pages/my/my",
     "pages/kind/kind",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/address/address",
+    "pages/orders/orders"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#576b95",
+    "navigationBarBackgroundColor": "#4ECE59",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "生鲜超市",
+    "navigationBarTitleText": "威猛鲜生",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false
   },
   "tabBar": {
     "color": "#000000",
-    "selectedColor": "#328EEB",
+    "selectedColor": "#4ECE59",
     "list": [
       {
         "pagePath": "pages/index/index",
