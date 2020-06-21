@@ -1,5 +1,6 @@
 // pages/detail/detail.js
 var common = require('../../utils/common.js')
+var that;
 Page({
 
   /**
@@ -16,11 +17,17 @@ Page({
       src4: "/images/xigua4.jpg",
       src5: "/images/xigua1.jpg",
       src6: "/images/xigua2.jpg",
-    }
+    },
+    pro:[]
   },
+
+
   addCar(){
-    let product = this.data.product
-    wx.setStorageSync(product.id, product)
+    let product = this.data.pro
+    wx.setStorageSync(product[0], product)
+    //let text = wx.getStorageSync('小青菜')
+    //console.log(text)
+
     wx.showModal({
       title: '成功提示',
       content: '产品添加到购物车成功',
@@ -31,61 +38,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let id = options.id
-    let result = common.getProductDetail(id)
-    if(result.code == '200'){
-      this.setData({
-        product:result.product
-      })
-    }
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    that=this;
+    let id = options.name
+    //console.log(id);
+    wx.request({
+      url: 'http://123.56.254.65:8100/product/' + id ,
+      data: {},
+      method: "GET",
+      header: {},
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          pro: res.data,
+        })
+      }
+    });
   }
 })

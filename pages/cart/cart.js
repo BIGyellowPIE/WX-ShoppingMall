@@ -4,11 +4,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    number:0,
-    price:0,
-    productList: []
+    totalprice:0, //总价，初始为0
+    productList: [], //购物车列表
+    hasList: false, //列表是否有数据
+    selectAllStatus: false, //全选状态，默认全选
+    carts: [],
+    //number:0,//商品数量
   },
-  getCart:function(){
+  //获取商品列表,计算总价
+  getCart: function () {
     let info = wx.getStorageInfoSync()
     let keys = info.keys
     let num = keys.length
@@ -16,92 +20,130 @@ Page({
     let myCart = [];
     for (var i = 0; i < num; i++) {
       let obj = wx.getStorageSync(keys[i])
+      //console.log(obj)
       myCart.push(obj)
     }
+    //console.log(myCart)
     this.setData({
-      productList: myCart,
-      number: num
-    })
-
+      carts: myCart,
+      hasList: true
+    });
+    this.getTotalPrice();
   },
-
-  checkedChange(e){
-    var priceSum=0;
-    var id = e.currentTarget.id;
-    var num = e.detail.value;
-    var p = this.data.productList;
-    if(num!=''){
-      for(var i=0;i<p.length;i++){
-        if(p[i].id==id){
-          priceSum=parseFloat(this.data.price) + parseFloat(p[i].price)
-        }
-      }
-    }
-    else{
-      for (var i = 0; i < p.length; i++) {
-        if (p[i].id == id) {
-          priceSum = parseFloat(this.data.price) - parseFloat(p[i].price)
-        }
-      }      
-    }
-    this.setData({
-      price:priceSum
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    /* this.setData({
+      hasList: true,
+      carts:[
+        { id: 1, name: '西瓜', src: '/images/xigua1.jpg', num: 4, price: 0.01, selected: true},
+        { id: 2, name: 'timg', src: '/images/timg.jpg', num: 1, price: 0.03, selected: true }
+      ]
+    });
+    this.getTotalPrice(); */
     this.getCart();
   },
-
   /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+    * 当前商品选中事件
+    */
+  selectList(e) {
+    const index = e.currentTarget.dataset.index;
+    let carts = this.data.carts;
+    const selected = carts[index].selected;
+    carts[index].selected = !selected;
+    this.setData({
+      carts: carts
+    });
+    this.getTotalPrice();
   },
 
   /**
-   * 生命周期函数--监听页面卸载
+   * 删除购物车当前商品
    */
-  onUnload: function () {
-
+  deleteList(e) {
+    const index = e.currentTarget.dataset.index;
+    let carts = this.data.carts;
+    carts.splice(index, 1);
+    this.setData({
+      carts: carts
+    });
+    if (!carts.length) {
+      this.setData({
+        hasList: false
+      });
+    } else {
+      this.getTotalPrice();
+    }
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 购物车全选事件
    */
-  onPullDownRefresh: function () {
+  selectAll(e) {
+    let selectAllStatus = this.data.selectAllStatus;
+    selectAllStatus = !selectAllStatus;
+    let carts = this.data.carts;
 
+    for (let i = 0; i < carts.length; i++) {
+      carts[i].selected = selectAllStatus;
+    }
+    this.setData({
+      selectAllStatus: selectAllStatus,
+      carts: carts
+    });
+    this.getTotalPrice();
   },
 
   /**
-   * 页面上拉触底事件的处理函数
+   * 绑定加数量事件
    */
-  onReachBottom: function () {
-
+  addCount(e) {
+    const index = e.currentTarget.dataset.index;
+    let carts = this.data.carts;
+    let num = carts[index][9];
+    num = num + 1;
+    carts[index][9] = num;
+    this.setData({
+      carts: carts
+    });
+    this.getTotalPrice();
   },
 
   /**
-   * 用户点击右上角分享
+   * 绑定减数量事件
    */
-  onShareAppMessage: function () {
+  minusCount(e) {
+    const index = e.currentTarget.dataset.index;
+    const obj = e.currentTarget.dataset.obj;
+    let carts = this.data.carts;
+    let num = carts[index][9];
+    if (num <= 1) {
+      return false;
+    }
+    num = num - 1;
+    carts[index][9] = num;
+    this.setData({
+      carts: carts
+    });
+    this.getTotalPrice();
+  },
 
+  /**
+   * 计算总价
+   */
+  getTotalPrice() {
+    let carts = this.data.carts;                  // 获取购物车列表
+    let total = 0;
+    for (let i = 0; i < carts.length; i++) {         // 循环列表得到每个数据
+      if (carts[i].selected) {                     // 判断选中才会计算价格
+        total += carts[i][9] * carts[i].price;   // 所有价格加起来
+      }
+    }
+    this.setData({                                // 最后赋值到data中渲染到页面
+      carts: carts,
+      totalPrice: total.toFixed(2)
+    });
   }
-})
+
+});

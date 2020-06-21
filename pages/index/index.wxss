@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   padding: 10rpx 16rpx;
-  background-color: #576b95;
+  background-color: #4ECE59;
   border-bottom-left-radius: 16rpx;
   border-bottom-right-radius: 16rpx;
 }
@@ -32,7 +32,7 @@ swiper image{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: #eee;
+  background-color: #fff;
   border-radius: 16rpx;
   padding: 0 20rpx;
   margin-top: 10rpx;
@@ -40,10 +40,10 @@ swiper image{
 .nav .menu{
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 20%;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10rpx;
+  margin-bottom: 40rpx;
 }
 .menu text{
   font-size: 22rpx;
@@ -51,8 +51,8 @@ swiper image{
   margin-bottom: 10rpx;
 }
 .menu image{
-  width: 60rpx;
-  height: 60rpx;
+  width: 80rpx;
+  height: 80rpx;
   border-radius: 50%;
   margin-top: 16rpx
 }
@@ -94,7 +94,7 @@ swiper image{
   height: 60rpx;
   justify-content: space-around;
   align-items: center;
-  background-color: #576b95;
+  background-color: #4ECE59;
   border-bottom-left-radius: 16rpx;
   border-bottom-right-radius: 16rpx;
 }

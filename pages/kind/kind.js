@@ -5,26 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classType:[
-      {
-        "id":1,
-        "name":"蔬菜"
-      },
-      {
-        "id": 2,
-        "name": "水果"
-      },
-      {
-        "id": 3,
-        "name": "肉类"
-      },
-      {
-        "id": 4,
-        "name": "鱼类"
-      }
-    ],
     productList:[],
-    productAll:[]
+    productAll:[],
+    classType:[]
   },
   searchTab(e){
     var p = this.data.productAll;
@@ -35,7 +18,23 @@ Page({
         list.push(p[i])
       }
     }
-
+    this.setData({
+      productList:list
+    })
+  },
+  searchid(d)
+  {
+    var p=this.data.productAll;
+    var id=d;
+    var list=[];
+    console.log(p.length);
+    for(var i=0;i<p.length;i++)
+    {
+      if(p[i].classid==id)
+      {
+        list.push(p[i]);
+      }
+    }
     this.setData({
       productList:list
     })
@@ -45,9 +44,13 @@ Page({
    */
   onLoad: function (options) {
     let list = common.getProductList()
+    let tlist=common.getClassList()
+    console.log(options.name);
     this.setData({
-      productAll: list
+      productAll: list,
+      classType: tlist
     })
+
   },
 
   /**

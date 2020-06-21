@@ -47,6 +47,12 @@ swiper video,image{
   line-height: 80rpx;
 }
 
+.info .num{
+  font-size: 40rpx;
+  color: rgb(255, 255, 255);
+  line-height: 80rpx;
+}
+
 .bottom{
   position: fixed;
   bottom: 0;
