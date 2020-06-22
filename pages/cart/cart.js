@@ -7,7 +7,7 @@ Page({
     totalprice:0, //总价，初始为0
     productList: [], //购物车列表
     hasList: false, //列表是否有数据
-    selectAllStatus: false, //全选状态，默认全选
+    selectAllStatus: true, //全选状态，默认全选
     carts: [],
     //number:0,//商品数量
   },
@@ -50,8 +50,9 @@ Page({
   selectList(e) {
     const index = e.currentTarget.dataset.index;
     let carts = this.data.carts;
-    const selected = carts[index][15];
-    carts[index][15] = !selected;
+    const selected = carts[index][16];
+    //console.log(selected)
+    carts[index][16] = !selected;
     this.setData({
       carts: carts
     });
@@ -86,7 +87,7 @@ Page({
     let carts = this.data.carts;
 
     for (let i = 0; i < carts.length; i++) {
-      carts[i].selected = selectAllStatus;
+      carts[i][16] = selectAllStatus;
     }
     this.setData({
       selectAllStatus: selectAllStatus,
@@ -136,7 +137,7 @@ Page({
     let carts = this.data.carts;                  // 获取购物车列表
     let total = 0;
     for (let i = 0; i < carts.length; i++) {         // 循环列表得到每个数据
-      if (carts[i].selected) {                     // 判断选中才会计算价格
+      if (carts[i][16]) {                     // 判断选中才会计算价格
         total += carts[i][3] * carts[i][15];   // 所有价格加起来
       }
     }
