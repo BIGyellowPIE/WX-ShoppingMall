@@ -19,10 +19,11 @@
 <text class="hot">热销蔬果</text>
 <view class="product">
   <navigator url="/pages/detail/detail?name={{item[0]}}" class="product_detail" wx:for="{{productList}}" wx:key="index">
-    <image src="{{item[2]}}" mode="widthFix"></image>
+    <image src="{{item[7]}}" mode="widthFix"></image>
     <view class="info">
-      <text class="name">{{item[0]}}</text>
-      <text class="price">¥{{item[1]}}元</text>
+      <wxs src="../../utils/app.wxs" module="tools"/>
+      <text class="name">{{tools.substring(item[1],5)}}</text>
+      <text class="price">¥{{item[3]}}元</text>
     </view>
   </navigator>
 </view>

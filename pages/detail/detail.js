@@ -39,15 +39,16 @@ Page({
    */
   onLoad: function (options) {
     that=this;
+    //console.log(options)
     let id = options.name
     //console.log(id);
     wx.request({
-      url: 'http://123.56.254.65:8100/product/' + id ,
+      url: 'http://123.56.254.65:8100/getdetails/' + id ,
       data: {},
       method: "GET",
       header: {},
       success: function (res) {
-        console.log(res.data);
+        //console.log(res.data);
         that.setData({
           pro: res.data,
         })

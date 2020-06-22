@@ -19,19 +19,19 @@ Page({
    */
   onLoad: function (options) {
     that=this
-    let list = common.getProductList()
+    //let list = common.getProductList()
     let list1= common.getClassList()
     this.setData({
       //productList:list,
       navList: list1
     })
     wx.request({
-      url: 'http://123.56.254.65:8100/productlist',
+      url: 'http://123.56.254.65:8100/getdetails',
       data: {},
       method: "GET",
       header: {},
       success: function (res) {
-        //console.log(res.data[0][0]);
+        console.log(res.data);
         //console.log(typeof res.data[0][0])
         that.setData({
           productList: res.data,
