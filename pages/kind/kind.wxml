@@ -1,15 +1,16 @@
 <view class="container">
   <view class="menu">
-    <view class="classtype" bindtap="searchTab" wx:for="{{classType}}" wx:key="index" id="{{item.id}}">
+    <view class="classtype" bindtap="searchTab" wx:for="{{classType}}" wx:key="index" id="{{item.name}}">
       <text>{{item.name}}</text>
     </view>
   </view>
   <view class="list">
-    <navigator url="/pages/detail/detail?id={{item.id}}" class="productList" wx:for="{{productList == ''?productAll:productList}}" wx:key="index">
-      <image src="{{item.src}}" mode="widthFix"></image>
+    <navigator url="/pages/detail/detail?name={{item[0]}}" class="productList" wx:for="{{productList == ''?productAll:productList}}" wx:key="index">
+      <image src="{{item[7]}}" mode="widthFix"></image>
       <view class="info">
-        <text>{{item.name}}</text>
-        <text>¥{{item.price}}</text>
+        <wxs src="../../utils/app.wxs" module="tools"/>
+        <text>{{tools.substring(item[1],5)}}</text>
+        <text>¥{{item[3]}}</text>
       </view>
     </navigator>
   </view>

@@ -3,14 +3,14 @@
 
     <view wx:if="{{hasList}}">
       <view class="cart-list" wx:for="{{carts}}" wx:key="index">
-        <icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
+        <icon wx:if="{{item[16]}}" type="success" color="red" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
         <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList"/>
-        <navigator url="../detail/detail?name={{item[0]}}"><image class="cart-thumb" src="{{item[2]}}"></image></navigator>
-        <text class="cart-pro-name">{{item[0]}}</text>
-        <text class="cart-pro-price">￥{{item[1]}}</text>
+        <navigator url="../detail/detail?name={{item[1]}}"><image class="cart-thumb" src="{{item[7]}}"></image></navigator>
+        <text class="cart-pro-name">{{item[1]}}</text>
+        <text class="cart-pro-price">￥{{item[3]}}</text>
         <view class="cart-count-box">
           <text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
-          <text class="cart-count-num">{{item[9]}}</text>
+          <text class="cart-count-num">{{item[15]}}</text>
           <text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
         </view>
         <!-- 删除按钮 -->

@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    product:{
+    /* product:{
       id: '001',
       name:"西瓜",
       price:"10.00",
@@ -17,15 +17,16 @@ Page({
       src4: "/images/xigua4.jpg",
       src5: "/images/xigua1.jpg",
       src6: "/images/xigua2.jpg",
-    },
+    }, */
     pro:[]
   },
 
 
   addCar(){
     let product = this.data.pro
+    //console.log(product)
     wx.setStorageSync(product[0], product)
-    //let text = wx.getStorageSync('小青菜')
+    //let text = wx.getStorageSync("00001")
     //console.log(text)
 
     wx.showModal({

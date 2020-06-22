@@ -134,7 +134,7 @@ scroll-view{
 }
 .cart-toatl-price{
     float: right;
-    width: 140rpx;
+    width: 200rpx;
 }
 .order-icon{
     position: absolute;

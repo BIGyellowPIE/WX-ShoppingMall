@@ -7,9 +7,10 @@ Page({
    */
   data: {
     swiperImg: [
-      { src: "http://image1.chinanews.com.cn/cnsupload/big/2019/10-01/4-426/a7e426b0dd6c43d2bc710fafe810a0d5.jpg" },
-      { src: "http://i2.chinanews.com/simg/cmshd/2019/10/05/998e12aa71f248d4a797761b18e48418.jpg" },
-      { src: "http://i2.chinanews.com/simg/cmshd/2019/10/01/c5391220f28d49bdbd14c58a4300bde0.jpg" }
+      { src: "https://m.360buyimg.com/babel/jfs/t1/142516/38/996/94361/5eec5797E28a59e99/6ecfdecd80d51b23.jpg" },
+      { src: "https://m.360buyimg.com/babel/jfs/t1/122328/6/4707/114253/5ee332f4Efc0a512a/9f6f3fbfcd4b7e45.jpg" },
+      { src: "https://m.360buyimg.com/babel/jfs/t1/110749/14/13028/95358/5eeb42cbEb7526a42/15e1f7cd2d8f49e8.jpg" },
+      { src: "https://m.360buyimg.com/babel/jfs/t1/116049/6/10247/53453/5ee96c5cE60cd2147/977d9e815a5bc4d5.jpg" },
     ],
     productList:[],
     navList:[]
@@ -38,7 +39,7 @@ Page({
         })
       }
     });
-    function getProductList() {
+    /* function getProductList() {
       let list = [];
       for (var i = 0; i < productList.length; i++) {
         let obj = {};
@@ -50,6 +51,6 @@ Page({
         list.push(obj);
       }
       return list;
-    }
+    } */
   },
 })

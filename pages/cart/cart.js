@@ -50,8 +50,8 @@ Page({
   selectList(e) {
     const index = e.currentTarget.dataset.index;
     let carts = this.data.carts;
-    const selected = carts[index].selected;
-    carts[index].selected = !selected;
+    const selected = carts[index][15];
+    carts[index][15] = !selected;
     this.setData({
       carts: carts
     });
@@ -101,9 +101,9 @@ Page({
   addCount(e) {
     const index = e.currentTarget.dataset.index;
     let carts = this.data.carts;
-    let num = carts[index][9];
+    let num = carts[index][15];
     num = num + 1;
-    carts[index][9] = num;
+    carts[index][15] = num;
     this.setData({
       carts: carts
     });
@@ -117,12 +117,12 @@ Page({
     const index = e.currentTarget.dataset.index;
     const obj = e.currentTarget.dataset.obj;
     let carts = this.data.carts;
-    let num = carts[index][9];
+    let num = carts[index][15];
     if (num <= 1) {
       return false;
     }
     num = num - 1;
-    carts[index][9] = num;
+    carts[index][15] = num;
     this.setData({
       carts: carts
     });
@@ -137,7 +137,7 @@ Page({
     let total = 0;
     for (let i = 0; i < carts.length; i++) {         // 循环列表得到每个数据
       if (carts[i].selected) {                     // 判断选中才会计算价格
-        total += carts[i][9] * carts[i].price;   // 所有价格加起来
+        total += carts[i][3] * carts[i][15];   // 所有价格加起来
       }
     }
     this.setData({                                // 最后赋值到data中渲染到页面
