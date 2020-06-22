@@ -9,25 +9,8 @@ Page({
     hasAddress: false,
     total: 0,
     orders: [
-      { id: 1, title: '新鲜芹菜 半斤', image: '/image/s5.png', num: 4, price: 0.01 },
-      { id: 2, title: '素米 500g', image: '/image/s6.png', num: 1, price: 0.03 }
     ]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    this.getTotalPrice();
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -42,6 +25,8 @@ Page({
         })
       }
     })
+    this.getOrder(),
+      this.getTotalPrice()
   },
 
   /**
@@ -50,59 +35,57 @@ Page({
   getTotalPrice() {
     let orders = this.data.orders;
     let total = 0;
+    //console.log(orders)
     for (let i = 0; i < orders.length; i++) {
-      total += orders[i].num * orders[i].price;
+      total += orders[i][3] * orders[i][15];
     }
+    //console.log(total)
     this.setData({
       total: total
     })
   },
 
   toPay() {
+    let info = wx.getStorageInfoSync()
+    let keys = info.keys
+    let num = keys.length
+    //console.log(keys)
+    for (var i = 0; i < num; i++) {
+      //删除地址缓存
+      /* if(wx.getStorageSync('address')){
+        wx.removeStorageSync('address')
+      } */
+      //删除已经购买的商品缓存
+      let obj = wx.getStorageSync(keys[i])
+      if (obj[16]) {
+        wx.removeStorageSync(obj[0])
+      }
+    };
     wx.showModal({
       title: '提示',
       content: '本系统只做演示，支付系统已屏蔽',
       text: 'center',
       complete() {
-        wx.switchTab({
-          url: '/page/component/user/user'
-        })
+        wx.navigateBack();
       }
-    })
+    });
+    //wx.navigateBack();
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  getOrder: function() {
+    let info = wx.getStorageInfoSync()
+    let keys = info.keys
+    let num = keys.length
+    //console.log(keys)
+    let myCart = [];
+    for (var i = 0; i < num; i++) {
+      let obj = wx.getStorageSync(keys[i])
+      if (obj[16]) {
+        myCart.push(obj);
+      }
+    }
+    this.setData({
+      orders: myCart
+    });
   }
 })

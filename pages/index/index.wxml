@@ -3,14 +3,18 @@
   <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" circular="true">
     <view wx:for="{{swiperImg}}" wx:key="index">
       <swiper-item>
+        <navigator url="{{item.url}}">
         <image src="{{item.src}}" mode="aspectFill"></image>
+        </navigator>
       </swiper-item>
     </view>
   </swiper>
 
   <view class="nav">
     <view class="menu" wx:for="{{navList}}" wx:key="index">
-      <image src="{{item.src}}"></image>
+      <navigator url="/pages/kind/kind?name={{item.name}}">
+        <image src="{{item.src}}"></image>
+      </navigator>
       <text>{{item.name}}</text>
     </view>
   </view>

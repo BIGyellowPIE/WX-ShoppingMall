@@ -1,3 +1,5 @@
+var address;
+var obj;
 Page({
 
   /**
@@ -13,8 +15,15 @@ Page({
   },
   //获取商品列表,计算总价
   getCart: function () {
+    //把地址缓存取出
+    if (wx.getStorageSync('address')) {
+      address = wx.getStorageSync('address')
+      wx.removeStorageSync('address');
+    }
+    //获得所有未购买商品信息
     let info = wx.getStorageInfoSync()
     let keys = info.keys
+    console.log(keys)
     let num = keys.length
 
     let myCart = [];
@@ -23,6 +32,9 @@ Page({
       //console.log(obj)
       myCart.push(obj)
     }
+    wx.setStorageSync('address', address)
+    //let pp = wx.getStorageInfoSync()
+    //console.log(pp)
     //console.log(myCart)
     this.setData({
       carts: myCart,
@@ -34,14 +46,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    /* this.setData({
-      hasList: true,
-      carts:[
-        { id: 1, name: '西瓜', src: '/images/xigua1.jpg', num: 4, price: 0.01, selected: true},
-        { id: 2, name: 'timg', src: '/images/timg.jpg', num: 1, price: 0.03, selected: true }
-      ]
-    });
-    this.getTotalPrice(); */
     this.getCart();
   },
   /**
@@ -145,6 +149,25 @@ Page({
       carts: carts,
       totalPrice: total.toFixed(2)
     });
-  }
+  },
+
+  /**
+   * 去支付
+   */
+  toPay() {
+    let carts = this.data.carts;  
+    //console.log(carts)
+    if (wx.getStorageSync('address')){
+      obj = wx.getStorage('address');
+    }
+    wx.clearStorage();
+    if (wx.getStorageSync('address')){
+    wx.clearStorage();
+    }
+    wx.setStorageSync('address', obj)
+    for(let i = 0; i < carts.length; i++){
+      wx.setStorageSync(carts[i][0], carts[i])
+    }
+  },
 
 });

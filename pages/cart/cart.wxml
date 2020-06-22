@@ -23,7 +23,7 @@
       <text>全选</text>
       <text class="cart-toatl-price">￥{{totalPrice}}</text>
       <view class="order-icon">
-        <navigator url="../orders/orders"><text>去结算</text></navigator>
+        <navigator url="../orders/orders" bindtap="toPay"><text>去结算</text></navigator>
             </view>
       </view>
     </view>
