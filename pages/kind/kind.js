@@ -14,7 +14,19 @@ Page({
   searchTab(e){
     var p = this.data.productAll;
     var id = e.currentTarget.id;
-    //console.log(id)
+    wx.request({
+      url: 'http://123.56.254.65:8100/get_kind/'+id,
+      data: {},
+      method: "GET",
+      header: {},
+      success: function (res) {
+        //console.log(res.data);
+        //console.log(typeof res.data[0][0])
+        that.setData({
+          productAll: res.data,
+        })
+      }
+    })
     //console.log(p)
     var list = [];
     for(var i = 0; i<p.length; i++){
@@ -52,7 +64,7 @@ Page({
     that = this
     let list = common.getProductList()
     wx.request({
-      url: 'http://123.56.254.65:8100/getdetails',
+      url: 'http://123.56.254.65:8100/get_kind/新鲜水产',
       data: {},
       method: "GET",
       header: {},
