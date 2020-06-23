@@ -5,3 +5,20 @@
   </block>
   <button wx:else open-type="getUserInfo" bindgetuserinfo="getMyInfo">未登录，点此登录</button>
 </view>
+<view class="address">
+  <navigator url="../address/address">
+        <view wx:if="{{hasAddress}}" class="orders-address">
+            <text class="orders-address-name">收货人: 威猛鲜生</text>
+            <text class="orders-address-phone">电话: 888888</text>
+            <view class="orders-address-detail">地址：上海市奉贤区海思路999号</view>
+        </view>
+        <view wx:else class="orders-no-address">添加收货地址</view>
+    </navigator>
+</view>
+<view class="collect">
+  <navigator url="../collect/collect">
+    <view class="collect-text">
+      <text>收藏</text>
+    </view>
+  </navigator>
+</view>

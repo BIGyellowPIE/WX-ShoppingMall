@@ -1,5 +1,6 @@
 var address;
 var obj;
+var i=0;
 Page({
 
   /**
@@ -11,31 +12,29 @@ Page({
     hasList: false, //列表是否有数据
     selectAllStatus: true, //全选状态，默认全选
     carts: [],
-    //number:0,//商品数量
   },
   //获取商品列表,计算总价
   getCart: function () {
+    i=0;
     //把地址缓存取出
     if (wx.getStorageSync('address')) {
-      address = wx.getStorageSync('address')
+      address = wx.getStorageSync('address');
       wx.removeStorageSync('address');
+      i=1;
     }
     //获得所有未购买商品信息
     let info = wx.getStorageInfoSync()
     let keys = info.keys
-    console.log(keys)
     let num = keys.length
 
     let myCart = [];
     for (var i = 0; i < num; i++) {
       let obj = wx.getStorageSync(keys[i])
-      //console.log(obj)
       myCart.push(obj)
     }
-    wx.setStorageSync('address', address)
-    //let pp = wx.getStorageInfoSync()
-    //console.log(pp)
-    //console.log(myCart)
+    if (i) {
+      wx.setStorageSync('address', address)
+    }
     this.setData({
       carts: myCart,
       hasList: true
@@ -156,15 +155,8 @@ Page({
    */
   toPay() {
     let carts = this.data.carts;  
-    //console.log(carts)
-    if (wx.getStorageSync('address')){
-      obj = wx.getStorage('address');
-    }
     wx.clearStorage();
-    if (wx.getStorageSync('address')){
-    wx.clearStorage();
-    }
-    wx.setStorageSync('address', obj)
+    wx.setStorageSync('address', address)
     for(let i = 0; i < carts.length; i++){
       wx.setStorageSync(carts[i][0], carts[i])
     }

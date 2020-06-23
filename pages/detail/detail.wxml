@@ -30,5 +30,5 @@
 </scroll-view>
 <view class="bottom">
     <button bindtap="addCar">添加到购物车</button>
-    <button bindtap="buy">立即购买</button>
+    <button bindtap="buy">收藏</button>
 </view>

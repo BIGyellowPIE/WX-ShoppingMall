@@ -6,7 +6,8 @@
     "pages/kind/kind",
     "pages/cart/cart",
     "pages/address/address",
-    "pages/orders/orders"
+    "pages/orders/orders",
+    "pages/collect/collect"
   ],
   "window": {
     "navigationBarBackgroundColor": "#4ECE59",
@@ -29,14 +30,14 @@
       {
         "pagePath": "pages/kind/kind",
         "text": "分类",
-        "iconPath": "images/index1.png",
-        "selectedIconPath": "images/index2.png"
+        "iconPath": "images/fenlei2.png",
+        "selectedIconPath": "images/fenlei1.png"
       },
       {
         "pagePath": "pages/cart/cart",
         "text": "购物车",
-        "iconPath": "images/my1.png",
-        "selectedIconPath": "images/my2.png"
+        "iconPath": "images/cart1.png",
+        "selectedIconPath": "images/cart2.png"
       },
       {
         "pagePath": "pages/my/my",

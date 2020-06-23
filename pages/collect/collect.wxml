@@ -1,0 +1,34 @@
+<view class="content">
+
+    <view wx:if="{{hasList}}">
+      <view class="cart-list" wx:for="{{carts}}" wx:key="index">
+        <icon wx:if="{{item[16]}}" type="success" color="red" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
+        <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList"/>
+        <navigator url="../detail/detail?name={{item[1]}}"><image class="cart-thumb" src="{{item[7]}}"></image></navigator>
+        <text class="cart-pro-name">{{item[1]}}</text>
+        <text class="cart-pro-price">￥{{item[3]}}</text>
+        <view class="cart-count-box">
+          <text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
+          <text class="cart-count-num">{{item[15]}}</text>
+          <text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
+        </view>
+        <!-- 删除按钮 -->
+        <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text>
+      </view>
+
+    <view class="bottom">
+      <icon wx:if="{{selectAllStatus}}" type="success_circle" color="#fff" class="total-select" bindtap="selectAll"/>
+      <icon wx:else type="circle" color="#fff" class="total-select" bindtap="selectAll"/>
+      <text>全选</text>
+      <text class="cart-toatl-price">￥{{totalPrice}}</text>
+      <view class="order-icon">
+        <navigator url="../orders/orders" bindtap="toPay"><text>去结算</text></navigator>
+            </view>
+      </view>
+    </view>
+
+    <view wx:else>
+    <view class='cart-no-data'>购物车是空的哦~</view>
+    </view>
+  </view>
+

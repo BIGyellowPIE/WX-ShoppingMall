@@ -1,4 +1,5 @@
 // pages/orders/orders.js
+var address;
 Page({
 
   /**
@@ -8,8 +9,7 @@ Page({
     address: {},
     hasAddress: false,
     total: 0,
-    orders: [
-    ]
+    orders: []
   },
   /**
    * 生命周期函数--监听页面显示
@@ -39,7 +39,6 @@ Page({
     for (let i = 0; i < orders.length; i++) {
       total += orders[i][3] * orders[i][15];
     }
-    //console.log(total)
     this.setData({
       total: total
     })
@@ -51,10 +50,6 @@ Page({
     let num = keys.length
     //console.log(keys)
     for (var i = 0; i < num; i++) {
-      //删除地址缓存
-      /* if(wx.getStorageSync('address')){
-        wx.removeStorageSync('address')
-      } */
       //删除已经购买的商品缓存
       let obj = wx.getStorageSync(keys[i])
       if (obj[16]) {

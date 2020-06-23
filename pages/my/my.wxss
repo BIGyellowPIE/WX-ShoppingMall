@@ -14,3 +14,46 @@
 .myLogin text{
   color: white;
 }
+.address{
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.orders-address{
+    position: relative;
+    padding: 20rpx 50rpx 20rpx 35rpx;
+    font-size: 14px;
+    line-height: 25px;
+    border-bottom: 20rpx solid #ededed;
+    color: #adadad;
+}
+.orders-address-name{
+    display: inline-block;
+    width: 300rpx;
+}
+.orders-no-address{
+    position: relative;
+    height: 90rpx;
+    line-height: 90rpx;
+    color: #adadad;
+    border-bottom: 20rpx solid #ededed;
+    text-align: center;
+}
+.collect{
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.collect-text{
+  position: relative;
+  width: 500rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #adadad;
+  border-bottom: 20rpx solid #ededed;
+  text-align: center;
+}

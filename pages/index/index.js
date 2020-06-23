@@ -7,17 +7,18 @@ Page({
    */
   data: {
     swiperImg: [
-      { src: "https://m.360buyimg.com/babel/jfs/t1/142516/38/996/94361/5eec5797E28a59e99/6ecfdecd80d51b23.jpg",
-       url:'/pages/detail/detail?name=5894'},
       {
-        src: "https://m.360buyimg.com/babel/jfs/t1/122328/6/4707/114253/5ee332f4Efc0a512a/9f6f3fbfcd4b7e45.jpg",
-        url: '/pages/detail/detail?name=5894' },
+        src: "http://img11.360buyimg.com/n7/jfs/t1/129529/29/4050/351819/5ed8568bEd0e2ca18/b723da7c3f642348.jpg",
+       url:'/pages/detail/detail?name=689'},
       {
-        src: "https://m.360buyimg.com/babel/jfs/t1/110749/14/13028/95358/5eeb42cbEb7526a42/15e1f7cd2d8f49e8.jpg",
-        url: '/pages/detail/detail?name=5894'},
+        src: "//img13.360buyimg.com/n7/jfs/t1/59845/20/821/329534/5cf078c7Ea3bdfd00/4bac89f788215c7a.jpg",
+        url: '/pages/detail/detail?name=713' },
       {
-        src: "https://m.360buyimg.com/babel/jfs/t1/116049/6/10247/53453/5ee96c5cE60cd2147/977d9e815a5bc4d5.jpg",
-        url: '/pages/detail/detail?name=5894' },
+        src: "//img10.360buyimg.com/n7/jfs/t17206/57/2548678252/361987/40364e8d/5afa3fdbNaf54fea8.jpg",
+        url: '/pages/detail/detail?name=811'},
+      {
+        src: "//img14.360buyimg.com/n7/jfs/t21040/54/2099922208/146915/d73b689/5b458589N2e2e47f5.jpg",
+        url: '/pages/detail/detail?name=892' },
     ],
     productList:[],
     navList:[]
