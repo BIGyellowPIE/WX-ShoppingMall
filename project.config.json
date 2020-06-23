@@ -24,7 +24,11 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.4",
+<<<<<<< HEAD
 	"appid": "wx3b123345bd1e743c",
+=======
+	"appid": "wxd62342776f95580b",
+>>>>>>> 89644cb00f706ecc9524328d5a3529f405798a2b
 	"projectname": "Shop1",
 	"cloudfunctionTemplateRoot": "",
 	"watchOptions": {

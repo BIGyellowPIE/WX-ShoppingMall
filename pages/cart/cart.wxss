@@ -134,7 +134,11 @@ scroll-view{
 }
 .cart-toatl-price{
     float: right;
+<<<<<<< HEAD
     width: 200rpx;
+=======
+    width: 140rpx;
+>>>>>>> 89644cb00f706ecc9524328d5a3529f405798a2b
 }
 .order-icon{
     position: absolute;

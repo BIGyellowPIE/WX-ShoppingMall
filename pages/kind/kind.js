@@ -22,7 +22,27 @@ Page({
         list.push(p[i])
       }
     }
+<<<<<<< HEAD
     //console.log(list)
+=======
+    this.setData({
+      productList:list
+    })
+  },
+  searchid(d)
+  {
+    var p=this.data.productAll;
+    var id=d;
+    var list=[];
+    console.log(p.length);
+    for(var i=0;i<p.length;i++)
+    {
+      if(p[i].classid==id)
+      {
+        list.push(p[i]);
+      }
+    }
+>>>>>>> 89644cb00f706ecc9524328d5a3529f405798a2b
     this.setData({
       productList:list
     })
@@ -51,6 +71,7 @@ Page({
   onLoad: function (options) {
     that = this
     let list = common.getProductList()
+<<<<<<< HEAD
     wx.request({
       url: 'http://123.56.254.65:8100/get_detail',
       data: {},
@@ -70,6 +91,28 @@ Page({
       //productAll: list,
       classType: tlist
     })
+=======
+    let tlist=common.getClassList()
+    console.log(options.name);
+    this.setData({
+      productAll: list,
+      classType: tlist
+    })
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+>>>>>>> 89644cb00f706ecc9524328d5a3529f405798a2b
 
   },
 

@@ -12,9 +12,13 @@
 
   <view class="nav">
     <view class="menu" wx:for="{{navList}}" wx:key="index">
+<<<<<<< HEAD
       <navigator url="/pages/kind/kind?name={{item.name}}">
         <image src="{{item.src}}"></image>
       </navigator>
+=======
+      <image src="{{item.src}}"></image>
+>>>>>>> 89644cb00f706ecc9524328d5a3529f405798a2b
       <text>{{item.name}}</text>
     </view>
   </view>
@@ -23,11 +27,18 @@
 <text class="hot">热销蔬果</text>
 <view class="product">
   <navigator url="/pages/detail/detail?name={{item[0]}}" class="product_detail" wx:for="{{productList}}" wx:key="index">
+<<<<<<< HEAD
     <image src="{{item[7]}}" mode="widthFix"></image>
     <view class="info">
       <wxs src="../../utils/app.wxs" module="tools"/>
       <text class="name">{{tools.substring(item[1],5)}}</text>
       <text class="price">¥{{item[3]}}元</text>
+=======
+    <image src="{{item[2]}}" mode="widthFix"></image>
+    <view class="info">
+      <text class="name">{{item[0]}}</text>
+      <text class="price">¥{{item[1]}}元</text>
+>>>>>>> 89644cb00f706ecc9524328d5a3529f405798a2b
     </view>
   </navigator>
 </view>
