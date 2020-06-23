@@ -27,7 +27,7 @@ Page({
       navList: list1
     })
     wx.request({
-      url: 'http://123.56.254.65:8100/get_detail',
+      url: 'http://123.56.254.65:8100/getdetails',
       data: {},
       method: "GET",
       header: {},
