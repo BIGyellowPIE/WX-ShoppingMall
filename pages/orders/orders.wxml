@@ -10,11 +10,18 @@
 
     <view class="orders-box">
         <view wx:for="{{orders}}" wx:key="index" class="orders-list">
+<<<<<<< HEAD
             <image class="orders-thumb" src="{{item[7]}}"></image>
             <wxs src="../../utils/app.wxs" module="tools"/>
             <view class="orders-pro-name">{{tools.substring(item[1],17)}}</view>
             <view class="orders-pro-price">￥{{item[3]}}</view>
             <view class="orders-count-num">×{{item[15]}}</view>
+=======
+            <image class="orders-thumb" src="{{item.image}}"></image>
+            <view class="orders-pro-name">{{item.title}}</view>
+            <view class="orders-pro-price">￥{{item.price}}</view>
+            <view class="orders-count-num">×{{item.num}}</view>
+>>>>>>> 89644cb00f706ecc9524328d5a3529f405798a2b
         </view>
     </view>
 
